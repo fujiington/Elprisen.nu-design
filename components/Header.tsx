@@ -20,7 +20,6 @@ const navItems: { id: Tab; label: string }[] = [
 export default function Header({ activeTab, onTabChange, onSettingsClick }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-app-dark border-b border-[#333538] flex items-center justify-between px-4 py-3">
-      {/* Logo */}
       <div className="flex-shrink-0">
         <div className="relative w-9 h-9">
           <svg viewBox="0 0 36 36" className="w-9 h-9 absolute inset-0">
@@ -40,7 +39,6 @@ export default function Header({ activeTab, onTabChange, onSettingsClick }: Head
         </div>
       </div>
 
-      {/* Nav – hidden on desktop (all columns always visible) */}
       <nav className="flex items-center gap-4 md:hidden">
         {navItems.map((item) => (
           <button
@@ -57,7 +55,6 @@ export default function Header({ activeTab, onTabChange, onSettingsClick }: Head
         ))}
       </nav>
 
-      {/* Settings */}
       <button
         onClick={onSettingsClick}
         className="flex-shrink-0 text-price-green hover:text-white transition-colors text-lg"

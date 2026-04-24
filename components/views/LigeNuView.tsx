@@ -27,7 +27,6 @@ export default function LigeNuView({ prices, loading, error }: LigeNuViewProps) 
 
   const timeRange = current ? formatTimeRange(current.time_start, current.time_end) : null;
 
-  // Lowest price alarm – notify once per cheapest-hour window
   useEffect(() => {
     if (!settings.lowestPriceAlarm || !prices.length) return;
     if (Notification.permission !== 'granted') return;
@@ -42,7 +41,6 @@ export default function LigeNuView({ prices, loading, error }: LigeNuViewProps) 
     const end = new Date(cheapest.time_end);
     const notifiedKey = `alarm-notified-${cheapest.time_start}`;
 
-    // Fire immediately if we're in the cheapest window and haven't notified yet
     if (now >= start && now < end && !sessionStorage.getItem(notifiedKey)) {
       new Notification('Laveste elpris!', {
         body: `Det billigste tidspunkt er nu: ${cheapest.DKK_per_kWh.toFixed(3)} kr/kWh`,
@@ -52,7 +50,6 @@ export default function LigeNuView({ prices, loading, error }: LigeNuViewProps) 
       return;
     }
 
-    // Schedule notification
     if (start > now) {
       const ms = start.getTime() - now.getTime();
       const timer = setTimeout(() => {

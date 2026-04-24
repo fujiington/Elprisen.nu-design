@@ -11,12 +11,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Manglende parametre: year, month, day' }, { status: 400 });
   }
 
-  // Validate region to prevent injection
   if (region !== 'DK1' && region !== 'DK2') {
     return NextResponse.json({ error: 'Ugyldig region' }, { status: 400 });
   }
 
-  // Validate numeric values
   if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month) || !/^\d{2}$/.test(day)) {
     return NextResponse.json({ error: 'Ugyldige datoparametre' }, { status: 400 });
   }

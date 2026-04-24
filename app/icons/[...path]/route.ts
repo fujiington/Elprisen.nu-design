@@ -10,7 +10,6 @@ export async function GET(
   const assetDir = path.join(process.cwd(), 'assets', 'appIcons');
   const filePath = path.resolve(assetDir, ...pathSegments);
 
-  // Security: prevent path traversal
   if (!filePath.startsWith(assetDir)) {
     return new NextResponse('Not found', { status: 404 });
   }

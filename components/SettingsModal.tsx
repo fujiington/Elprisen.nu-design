@@ -33,16 +33,13 @@ export default function SettingsModal({ onClose }: SettingsModalProps) {
     regionOptions.find((o) => o.value === settings.region)?.label ?? 'VÆLG REGION';
 
   return (
-    /* Backdrop */
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      {/* Panel */}
       <div className="relative w-full max-w-sm rounded-2xl bg-[#2A2B2E] p-8 shadow-2xl">
-        {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-price-green hover:text-white text-xl transition-colors"
@@ -51,12 +48,10 @@ export default function SettingsModal({ onClose }: SettingsModalProps) {
           <FontAwesomeIcon icon={faCircleXmark} />
         </button>
 
-        {/* Title */}
         <h2 className="text-center text-lg font-bold tracking-[0.25em] text-price-muted mb-10">
           INDSTILLINGER
         </h2>
 
-        {/* VAT toggle */}
         <div className="flex items-center justify-between mb-8">
           <span className="text-xs font-bold tracking-widest text-price-muted">PRISER INKL. MOMS</span>
           <Toggle
@@ -67,7 +62,6 @@ export default function SettingsModal({ onClose }: SettingsModalProps) {
           />
         </div>
 
-        {/* Alarm toggle */}
         <div className="flex items-center justify-between mb-10">
           <span className="text-xs font-bold tracking-widest text-price-muted">LAVESTE PRIS ALARM</span>
           <Toggle
@@ -77,7 +71,6 @@ export default function SettingsModal({ onClose }: SettingsModalProps) {
           />
         </div>
 
-        {/* Region selector */}
         <div className="flex items-center justify-between">
           <span className="text-xs font-bold tracking-widest text-price-muted">VÆLG REGION</span>
 

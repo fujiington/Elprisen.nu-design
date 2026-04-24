@@ -55,7 +55,6 @@ export default function OversigView({ prices, loading, error }: OversigViewProps
 
       {!loading && !error && (
         <>
-          {/* Min / Max gauges */}
           <div className="flex items-end justify-center gap-8 mb-10">
             <div className="flex flex-col items-center gap-6">
               <PriceGauge price={minDisplay} size="sm" />
@@ -71,7 +70,6 @@ export default function OversigView({ prices, loading, error }: OversigViewProps
             </div>
           </div>
 
-          {/* Price list */}
           <div className="flex flex-col gap-2">
             {prices.map((entry) => {
               const displayPrice = applyVAT(entry.DKK_per_kWh, settings.includeVAT);
@@ -89,7 +87,6 @@ export default function OversigView({ prices, loading, error }: OversigViewProps
             })}
           </div>
 
-          {/* Footer info */}
           <p className="mt-6 text-[10px] tracking-widest text-gray-500 leading-relaxed">
             ALLE PRISER ER {settings.includeVAT ? 'INKL.' : 'EKSKL.'} MOMS
             {settings.includeVAT ? '.' : ' OG AFGIFTER.'}

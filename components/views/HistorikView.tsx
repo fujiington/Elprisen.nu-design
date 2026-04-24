@@ -57,7 +57,6 @@ export default function HistorikView() {
   };
 
   const inputRef = (node: HTMLInputElement | null) => {
-    // Keep input ref for calendar trigger
     if (node) node.dataset.ref = 'date-input';
   };
 
@@ -67,7 +66,6 @@ export default function HistorikView() {
         HISTORIK
       </h1>
 
-      {/* Date picker */}
       <div className="relative mb-8">
         <div className="flex items-center justify-between rounded-lg border border-[#444649] bg-[#2E2F32] px-4 py-3">
           <label
@@ -107,12 +105,10 @@ export default function HistorikView() {
 
       {!loading && !error && (
         <>
-          {/* List header */}
           <p className="text-[10px] font-bold tracking-widest text-price-muted mb-3 text-center">
             ELPRISERNE D. {formatDate(selectedDate)}
           </p>
 
-          {/* Price list */}
           <div className="flex flex-col gap-2">
             {prices.map((entry) => {
               const displayPrice = applyVAT(entry.DKK_per_kWh, settings.includeVAT);

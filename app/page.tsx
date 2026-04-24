@@ -19,7 +19,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch today's prices whenever region changes
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
@@ -42,7 +41,6 @@ export default function HomePage() {
     };
   }, [settings.region]);
 
-  // Auto-refresh every 5 minutes to keep current price up to date
   useEffect(() => {
     const interval = setInterval(() => {
       fetchPrices(new Date(), settings.region)
@@ -65,26 +63,21 @@ export default function HomePage() {
         onSettingsClick={() => setShowSettings(true)}
       />
 
-      {/* ── Mobile layout (single-column tabs) ── */}
       <main className="md:hidden">
         {activeTab === 'ligenu' && <LigeNuView {...sharedProps} />}
         {activeTab === 'oversigt' && <OversigView {...sharedProps} />}
         {activeTab === 'historik' && <HistorikView />}
       </main>
 
-      {/* ── Desktop layout (3-column) ── */}
       <main className="hidden md:grid md:grid-cols-3 md:divide-x md:divide-[#333538] md:min-h-[calc(100vh-56px)]">
-        {/* Col 1 – LIGE NU */}
         <div className="overflow-y-auto">
           <LigeNuView {...sharedProps} />
         </div>
 
-        {/* Col 2 – OVERSIGT */}
         <div className="overflow-y-auto">
           <OversigView {...sharedProps} />
         </div>
 
-        {/* Col 3 – HISTORIK */}
         <div className="overflow-y-auto">
           <HistorikView />
         </div>

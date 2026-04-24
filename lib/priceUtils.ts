@@ -31,18 +31,14 @@ export function getMaxEntry(prices: PriceEntry[]): PriceEntry | null {
   return prices.reduce((max, p) => (p.DKK_per_kWh > max.DKK_per_kWh ? p : max), prices[0]);
 }
 
-/**
- * Returns a hex color string based on where price falls in the [min, max] range.
- * Green (cheap) → yellow-green → orange → red-orange (expensive)
- */
 export function getPriceColor(price: number, min: number, max: number): string {
   if (max === min) return '#55EC20';
-  const ratio = (price - min) / (max - min); // 0 = cheapest, 1 = most expensive
+  const ratio = (price - min) / (max - min);
 
-  if (ratio <= 0.25) return '#55EC20'; // bright green
-  if (ratio <= 0.5) return '#A0CE20';  // yellow-green
-  if (ratio <= 0.75) return '#E8A020'; // orange
-  return '#E86020';                    // red-orange
+  if (ratio <= 0.25) return '#55EC20';
+  if (ratio <= 0.5) return '#A0CE20';
+  if (ratio <= 0.75) return '#E8A020';
+  return '#E86020';
 }
 
 export function formatHour(timeString: string): string {

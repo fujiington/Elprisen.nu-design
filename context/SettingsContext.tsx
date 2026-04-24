@@ -42,7 +42,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         setSettings((prev) => ({ ...prev, ...parsed }));
       }
     } catch {
-      // ignore
     }
     setHydrated(true);
   }, []);

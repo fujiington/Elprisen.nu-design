@@ -16,7 +16,6 @@ export default function PriceGauge({ price, size = 'lg', label }: PriceGaugeProp
 
   return (
     <div className={`relative ${containerClass} flex items-center justify-center`}>
-      {/* SVG dashed border circle */}
       <svg
         viewBox="0 0 100 100"
         className="absolute inset-0 w-full h-full"
@@ -34,7 +33,6 @@ export default function PriceGauge({ price, size = 'lg', label }: PriceGaugeProp
         />
       </svg>
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-2">
         {price !== null && price !== undefined ? (
           <>
@@ -48,7 +46,6 @@ export default function PriceGauge({ price, size = 'lg', label }: PriceGaugeProp
         )}
       </div>
 
-      {/* Optional label below circle */}
       {label && (
         <span
           className={`${subClass} text-price-muted tracking-widest absolute -bottom-6 left-0 right-0 text-center`}
