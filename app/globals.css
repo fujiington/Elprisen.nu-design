@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+@import '@fortawesome/fontawesome-svg-core/styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    background-color: #27282B;
+    color: #ebebeb;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+
+  /* Hide native date input styling */
+  input[type='date']::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  input[type='date']::-webkit-inner-spin-button {
+    display: none;
+  }
+  input[type='date'] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+@layer components {
+  .dashed-circle {
+    stroke-dasharray: 6 3.5;
+  }
+
+  .price-row {
+    @apply flex items-center justify-between px-4 py-3 rounded-lg bg-[#2E2F32] w-full;
+  }
+
+  .toggle-track {
+    @apply relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-200 cursor-pointer;
+  }
+
+  .toggle-thumb {
+    @apply inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition-transform duration-200;
+  }
+}
+
+/* Scrollbar (desktop) */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #27282B;
+}
+::-webkit-scrollbar-thumb {
+  background: #55EC20;
+  border-radius: 2px;
+}
